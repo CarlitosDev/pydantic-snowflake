@@ -200,7 +200,7 @@ class PydanticToSnowflake:
             except ImportError:
                 col_names = list(model_class.model_fields.keys())
                 placeholders = ", ".join(["%s"] * len(col_names))
-                insert_stmt = f"INSERT INTO {self.schema}.{self.table} ({', '.join([f'\"{col.upper()}\"' for col in col_names])}) VALUES ({placeholders})"
+                insert_stmt = f"INSERT INTO {self.schema}.{self.table} ({', '.join([f'{col.upper()}' for col in col_names])}) VALUES ({placeholders})"
                 records = [tuple(self.convert_value(getattr(item, col)) for col in col_names) for item in data]
                 cur = self.connection.cursor()
                 cur.executemany(insert_stmt, records)
