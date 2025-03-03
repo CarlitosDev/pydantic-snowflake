@@ -10,7 +10,7 @@ This package aims to ease the integration between Pydantic V2 and Snowflake. The
 What you would need is to have:
 - a Pydantic V2 defition of you class. You could have defined it as a data contract with another party or system.
 - An active connection to Snowflake. For example, via the [snowflake-connector](https://github.com/snowflakedb/snowflake-connector-python). You manage this connection (ie: you open/close it).
-- Pandas installed: leveraged for writing. Ideally you also installed [snowflake-connector](https://github.com/snowflakedb/snowflake-connector-python) with `write_pandas` for faster insert.
+- Pandas installed: leveraged for writing. Ideally you also installed [snowflake-connector](https://github.com/snowflakedb/snowflake-connector-python) with `write_pandas` for faster insert. `pip install "snowflake-connector-python[pandas]"`
 
 With that, you can just:
 ```python
